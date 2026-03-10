@@ -1,11 +1,8 @@
-
 const input = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
 
-
 let tasks = JSON.parse(localStorage.getItem('minhas_tarefas')) || [];
-
 
 function render() {
     taskList.innerHTML = '';
@@ -23,7 +20,6 @@ function render() {
     localStorage.setItem('minhas_tarefas', JSON.stringify(tasks));
 }
 
-
 addBtn.addEventListener('click', () => {
     if (input.value.trim() !== '') {
         tasks.push({ text: input.value, completed: false });
@@ -31,7 +27,6 @@ addBtn.addEventListener('click', () => {
         render();
     }
 });
-
 
 function toggleTask(index) {
     tasks[index].completed = !tasks[index].completed;
@@ -45,3 +40,4 @@ function removeTask(index) {
 }
 
 render();
+
